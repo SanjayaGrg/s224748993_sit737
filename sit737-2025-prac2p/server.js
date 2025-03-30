@@ -8,7 +8,6 @@ const path = require("path");
 app.use(express.static(__dirname + '/public'));
 app.use(express.json());
 
-// const dataFile = path.join(__dirname, 'data', 'todos.json');
 // Route for the home page
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
