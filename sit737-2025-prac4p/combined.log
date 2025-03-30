@@ -1,0 +1,35 @@
+{"level":"info","message":"I am listening to port: 3000"}
+{"level":"info","message":"I am listening to port: 3000"}
+{"level":"info","message":"Parameters 3 and 4 received for addition"}
+{"level":"info","message":"Parameters 3 and 4 received for addition"}
+{"level":"info","message":"I am listening to port: 3000"}
+{"level":"info","message":"Parameters 3 and 4 received for addition"}
+{"level":"info","message":"I am listening to port: 3000"}
+{"level":"info","message":"Parameters 3 and 6 received for addition"}
+{"level":"info","message":"Parameters 3 and 6 received for multiplication"}
+{"level":"info","message":"Parameters 3 and 6 received for multiplication"}
+{"level":"info","message":"Parameters 3 and 6 received for multiplication"}
+{"level":"error","message":"num1 incorrectly defined"}
+{"level":"info","message":"I am listening to port: 3000"}
+{"level":"info","message":"Parameters 7 and 6 received for addition"}
+{"level":"info","message":"Parameters 7 and 6 received for multiplication"}
+{"level":"error","message":"num1 incorrectly defined"}
+{"level":"info","message":"Parameters 0 and 6 received for multiplication"}
+{"level":"info","message":"Parameters 0 and 6 received for multiplication"}
+{"level":"info","message":"Parameters 9 and 0 received for multiplication"}
+{"level":"error","message":"num1 incorrectly defined"}
+{"level":"error"}
+{"level":"error","message":"num1 incorrectly defined"}
+{"level":"error"}
+{"level":"error","message":"num1 incorrectly defined"}
+{"level":"error"}
+{"level":"info","message":"Parameters 9 and 4 received for multiplication"}
+{"level":"info","message":"Parameters 9 and 4 received for addition"}
+{"level":"info","message":"Parameters 9 and 6 received for multiplication"}
+{"level":"info","message":"I am listening to port: 3000"}
+{"level":"info","message":"Parameters 9 and 6 received for subtraction"}
+{"level":"info","message":"Parameters 9 and 6 received for multiplication"}
+{"level":"info","message":"Parameters 9 and 6 received for division"}
+{"level":"info","message":"Parameters 9 and 20 received for addition"}
+{"level":"error","message":"num1 incorrectly defined"}
+{"level":"error","message":"num1 incorrectly defined"}
