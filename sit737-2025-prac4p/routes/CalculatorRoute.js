@@ -15,5 +15,14 @@ router.get('/multiply', (req, res) => {
 router.get('/divide', (req, res) => {
     controller.divNum(req, res);
 });
+router.get('/power', (req, res) => {
+    controller.powerNum(req, res);
+});
+router.get('/squareroot', (req, res) => {
+    controller.sqrtNum(req, res);
+});
+router.get('/modulo', (req, res) => {
+    controller.modNum(req, res);
+});
 
 module.exports = router;

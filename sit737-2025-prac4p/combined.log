@@ -33,3 +33,22 @@
 {"level":"info","message":"Parameters 9 and 20 received for addition"}
 {"level":"error","message":"num1 incorrectly defined"}
 {"level":"error","message":"num1 incorrectly defined"}
+{"level":"info","message":"I am listening to port: 3000"}
+{"level":"info","message":"Exponentiation requested: 3 ^ 3"}
+{"level":"info","message":"Exponentiation requested: 3 ^ 2"}
+{"level":"info","message":"Exponentiation requested: 3 ^ 4"}
+{"level":"info","message":"Square Root requested: sqrt(9)"}
+{"level":"info","message":"Modulo requested: 9 % 4"}
+{"level":"info","message":"Modulo requested: 16 % 4"}
+{"level":"info","message":"Modulo requested: 4 % 4"}
+{"level":"info","message":"Modulo requested: 4 % 4"}
+{"level":"info","message":"Modulo requested: 4 % 2"}
+{"level":"info","message":"Modulo requested: 4 % 9"}
+{"level":"info","message":"Modulo requested: 4 % 0"}
+{"level":"error","message":"Invalid input: Please provide valid numbers"}
+{"level":"error","message":"Invalid input: Please provide valid numbers"}
+{"level":"info","message":"Exponentiation requested: 4 ^ 20334"}
+{"level":"info","message":"Exponentiation requested: 4 ^ 0"}
+{"level":"info","message":"Exponentiation requested: 4 ^ -1"}
+{"level":"info","message":"Exponentiation requested: 0 ^ -1"}
+{"level":"info","message":"Exponentiation requested: 20 ^ -1"}

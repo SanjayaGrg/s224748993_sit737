@@ -8,3 +8,5 @@
 {"level":"error"}
 {"level":"error","message":"num1 incorrectly defined"}
 {"level":"error","message":"num1 incorrectly defined"}
+{"level":"error","message":"Invalid input: Please provide valid numbers"}
+{"level":"error","message":"Invalid input: Please provide valid numbers"}
