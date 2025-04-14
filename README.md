@@ -64,3 +64,36 @@ http://localhost:3000/v1/calculate/add?num1=3&num2=2
   ```
   docker run -p 8080:8080 us-central1-docker.pkg.dev/sit737-25t1-gurung-c1cd429/converter-microservice/sit737-2025-prac5d-web:v1
   ```
+
+
+### TASK 6.1P COMMANDS
+
+  > Build docker image and container
+  ```
+    docker build -t unit-converter-app .
+    docker tag unit-converter-app s224748993/unit-converter-app:latest
+    docker push s224748993/unit-converter-app:latest
+  ```  
+
+  > Create kubernetes deployment and service yaml file and apply config
+  ```
+  kubectl apply -f deployment.yaml
+  kubectl apply -f service.yaml
+  ```
+
+  > checking the deployment
+  ```
+  kubectl get deployments
+  kubectl get pods
+  kubectl get services
+  ```
+
+  > Start the kubernetes dashboard
+  ```
+   kubectl proxy
+  ```
+  
+  > To get access for the token, use this command:
+  ```
+  kubectl -n kubernetes-dashboard create token admin-user
+  ```
