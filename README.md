@@ -97,3 +97,55 @@ http://localhost:3000/v1/calculate/add?num1=3&num2=2
   ```
   kubectl -n kubernetes-dashboard create token admin-user
   ```
+
+### TASK 6.2C COMMANDS
+  #### Part 1 : Interacting with kubernetes cluster
+  > Check application status (pods and services)
+  ```
+    kubectl get pods
+    kubectl get services
+  ```  
+
+  > Access web application using port forwarding 
+  ```
+  kubectl port-forward service/unit-converter-service 3000:3000
+  ```
+
+   > Start the kubernetes dashboard
+  ```
+   kubectl proxy
+  ```
+  
+  > To get access for the token, use this command:
+  ```
+  kubectl -n kubernetes-dashboard create token admin-user
+  ```
+
+#### Part 2 : Updating Application
+  > checking in server.js
+  > Build and tag new docker Image
+  ```
+  docker build -t unit-converter-app:v2 .
+  docker push yourusername/unit-converter-app:v2
+  ```
+
+  > Updating kubernetes deployment yaml file
+  ```
+  containers:
+  - name: unit-converter
+    image: unit-converter-app:v2 # changing here latest to v2
+  ```
+
+  > Applying changes in kubernetes deployment 
+  ```
+  kubectl apply -f deployment.yaml
+  ```
+
+  > Verifying rollout and check the new pods available or not
+  ```
+  kubectl rollout status deployment/unit-converter-deployment
+  kubectl get pods 
+  ```
+  > check the kubernetes dashboard for the changes and also run in the localhost server
+
+ 

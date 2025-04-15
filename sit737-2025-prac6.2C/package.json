@@ -1,0 +1,17 @@
+{
+    "name": "server",
+    "description": "A simple node js server using express 4.",
+    "scripts": {
+        "test": "node server.js test",
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "express": "^4.21.2",
+        "winston": "^3.17.0"
+    },
+    "author": "Sanjaya",
+    "license": "MIT",
+    "version": "1.0.0",
+    "main": "server.js",
+    "keywords": []
+}
