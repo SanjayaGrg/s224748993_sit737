@@ -1,0 +1,44 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: mongodb-backup
+spec:
+  schedule: "0 2 * * *" # Daily at 2 AM
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: mongodb-backup
+            image: mongo:5.0
+            command:
+            - /bin/sh
+            - -c
+            - |
+              current_date=$(date +%Y-%m-%d)
+              mongodump --uri="mongodb://$MONGO_USERNAME:$MONGO_PASSWORD@mongodb-service:27017/$DB_NAME?authSource=admin" \
+              --archive=/backup/mongodb-backup-${current_date}.archive \
+              --gzip
+              echo "Backup completed at $(date)"
+            env:
+            - name: MONGO_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-secret
+                  key: username
+            - name: MONGO_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-secret
+                  key: password
+            - name: DB_NAME
+              value: crudDB
+            volumeMounts:
+            - name: backup-volume
+              mountPath: /backup
+          restartPolicy: OnFailure
+          volumes:
+          - name: backup-volume
+            persistentVolumeClaim:
+              claimName: backup-pvc

@@ -1,0 +1,41 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: mongodb-restore
+spec:
+  template:
+    spec:
+      containers:
+      - name: mongodb-restore
+        image: mongo:5.0
+        command:
+        - /bin/sh
+        - -c
+        - |
+          latest_backup=$(ls -t /backup/mongodb-backup-*.archive | head -1)
+          mongorestore --uri="mongodb://$MONGO_USERNAME:$MONGO_PASSWORD@mongodb-service:27017/$DB_NAME?authSource=admin" \
+          --archive=$latest_backup \
+          --gzip \
+          --drop
+          echo "Restore completed at $(date)"
+        env:
+        - name: MONGO_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mongodb-secret
+              key: username
+        - name: MONGO_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mongodb-secret
+              key: password
+        - name: DB_NAME
+          value: crudDB
+        volumeMounts:
+        - name: backup-volume
+          mountPath: /backup
+      restartPolicy: OnFailure
+      volumes:
+      - name: backup-volume
+        persistentVolumeClaim:
+          claimName: backup-pvc

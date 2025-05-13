@@ -149,3 +149,57 @@ http://localhost:3000/v1/calculate/add?num1=3&num2=2
   > check the kubernetes dashboard for the changes and also run in the localhost server
 
  
+ ### TASK 7.1P COMMANDS
+  #### Part 1 : Deploy the image to the docker
+  > 
+  ```
+    docker build -t s224748993/your-node-app-image .
+    docker tag your-node-app-image s224748993/your-node-app-image:latest
+    docker images
+    docker push s224748993/your-node-app-image:latest
+  ```  
+
+  #### Part 2 : Apply all the yaml configuration file in the kubernetes
+  > 
+  ```
+    kubectl get deployment
+    kubectl apply -f createPersistentVolume.yaml
+    kubectl apply -f createPVC.yaml
+    kubectl apply -f mongo-secret.yaml
+    kubectl apply -f mongo-deployment.yaml
+    kubectl apply -f mongo-service.yaml
+    kubectl apply -f app-deployment.yaml
+    kubectl apply -f app-service.yaml
+    kubectl apply -f backup-pv.yaml
+    kubectl apply -f backup-pvc.yaml
+    kubectl apply -f mongodb-backup.yaml 
+    kubectl apply -f mongodb-exporter.yaml
+    kubectl get cronjobs
+  ```  
+
+ #### Part 3: Verify deployment and check logs for mongo db and node pods
+  > 
+  ```
+    kubectl get pods
+    kubectl get services
+    kubectl logs <node-app-pod-name>
+    kubectl logs <mongodb-pod-name> 
+  ```  
+  #### Part 4: TO Check the kubernetes dashboard for the confirmation
+  > 
+  ```
+    kubectl proxy
+    // Go to this link http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login
+    kubectl -n kubernetes-dashboard create token admin-user   // to access token
+  ```  
+
+  #### Part 5: For manual Backup
+  > 
+  ```
+    $timestamp = Get-Date -Format "yyyyMMddHHmmss"
+    kubectl create job --from=cronjob/mongodb-backup "manual-backup-$timestamp"
+    kubectl get jobs
+    kubectl get pods -l job-name=manual-backup-$timestamp
+    $podName = kubectl get pods -l job-name=manual-backup-$timestamp -o jsonpath='{.items[0].metadata.name}'
+    kubectl logs $podName
+  ```  

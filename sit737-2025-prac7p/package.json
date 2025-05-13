@@ -1,0 +1,21 @@
+{
+    "name": "server",
+    "description": "A simple node js server using express 4 with MongoDB CRUD operations.",
+    "scripts": {
+        "test": "node server.js test",
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "express": "^4.21.2",
+        "winston": "^3.17.0",
+        "mongodb": "^4.13.0",
+        "dotenv": "^16.0.3",
+        "body-parser": "^1.20.2",
+        "cors": "^2.8.5"
+    },
+    "author": "Sanjaya",
+    "license": "MIT",
+    "version": "1.0.0",
+    "main": "server.js",
+    "keywords": []
+}
