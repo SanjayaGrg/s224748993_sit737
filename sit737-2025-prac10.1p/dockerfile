@@ -1,0 +1,15 @@
+# node version
+FROM node:21.7.1
+
+# working directory
+WORKDIR /app
+
+# Installing dependencies
+COPY package.json .
+RUN npm install
+COPY . .
+
+# my server port
+EXPOSE 3000
+# starting the application
+CMD [ "node", "server.js" ] 

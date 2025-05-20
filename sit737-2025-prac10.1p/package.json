@@ -1,0 +1,14 @@
+{
+    "name": "welcome-express-app",
+    "version": "1.0.0",
+    "description": "A simple Node.js Express app that shows a welcome message.",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "author": "Sanjaya Gurung",
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.18.2"
+    }
+}
